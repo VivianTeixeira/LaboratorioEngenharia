@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calcular o fatorial de um número</title>
+</head>
+<body>
+	<script>
+		let userInput = prompt("Digite um número inteiro positivo:");
+
+		userInput = parseInt(userInput);
+
+		if (isNaN(userInput) || userInput < 1) {
+			alert("O valor inserido não é um número inteiro positivo válido.");
+		} else {
+			let resultado = 1;
+			for (let i = 1; i <= userInput; i++) {
+				resultado *= i;
+			}
+			alert(`O fatorial de ${userInput} é ${resultado}.`);
+		}
+	</script>
+</body>
+</html>
