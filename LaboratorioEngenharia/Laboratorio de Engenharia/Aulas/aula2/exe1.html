@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Data Atual com JavaScript e CSS</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			text-align: center;
+		}
+
+		h1 {
+			color: #444;
+			margin-top: 50px;
+		}
+
+		#data-atual {
+			font-size: 24px;
+			color: #333;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Data Atual com JavaScript e CSS</h1>
+	<p id="data-atual"></p>
+
+	<script>
+		let dataAtual = new Date();
+
+		let diasDaSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+		let meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
+		let diaDaSemana = diasDaSemana[dataAtual.getDay()];
+		let diaDoMes = dataAtual.getDate();
+		let mes = meses[dataAtual.getMonth()];
+		let ano = dataAtual.getFullYear();
+
+		let dataFormatada = diaDaSemana + ", " + diaDoMes + " de " + mes + " de " + ano;
+
+		document.getElementById("data-atual").innerHTML = dataFormatada;
+	</script>
+</body>
+</html>
