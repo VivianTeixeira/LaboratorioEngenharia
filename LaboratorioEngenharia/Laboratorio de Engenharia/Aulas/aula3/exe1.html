@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+</head>
+    <label for="valor"> Valor novo: </label>
+    <input type="text" id="valor" name="valor">
+    <button onclick="adicionarValor()">Adicionar</button>
+
+    <h1>Valores cadastrados: </h1>
+    <ol id="listaValores"></ol>
+
+    <script>
+        let valores = [];
+
+        function adicionarValor() {
+            let novoValor = domcument.querySelector('#valor').value.trim(); //legal que esse trim serve para remover os espaços em branco da string 
+            if (novoValor !== ''){
+                valores.push(novoValor);
+                valores.sort();
+                exibirValores();
+            }
+        }
+
+        function existeValores() {
+            let lista = document.querySelector('#listaValores');
+            lista.innerHTML = '';
+            valores.forEach((valor) => {
+                let itemLista = document.createElement('li');
+                itemLista.textContent = valor;
+                lista.appendChild(itemLista);
+
+            });
+        }
+
+    </script>
+<body>
+    
+</body>
+</html>
