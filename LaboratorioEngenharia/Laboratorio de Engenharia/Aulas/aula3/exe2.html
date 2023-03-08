@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Document</title>
+
+    <script>
+        //a função "Carro" define a estrutura dos objetos que serão usados na aplicação
+        function Carro(marca, modelo, ano, cor, km, fipe){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.ano = ano;
+            this.cor = cor;
+            this.km = km;
+            this.fipe = fipe;
+
+        
+
+        }
+
+        // a função "salvarCarro" é responsável por interagir com a interface do usuário e criar novos objetos "Carro" com base nos valores inseridos pelo usuário.
+
+    </script>
+</head>
+<body>
+
+    <h1>Formulário de Carro</h1>
+    <form>
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca">
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo">
+
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano">
+
+        <label for="cor">Cor:</label>
+        <input type="text" id="cor" name="cor">
+
+        <label for="km">Kilometragem:</label>
+        <input type="number" id="km" name="km">
+
+        <label for="fipe">Valor do FIPE:</label>
+        <input type="number" id="fipe" name="fipe">
+
+        <input type="button" value="Salvar" onclick="salvarCarro()">
+    </form>
+</body>
+</html>
