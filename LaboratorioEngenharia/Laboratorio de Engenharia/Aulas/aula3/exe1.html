@@ -16,9 +16,8 @@
 
     <script>
         let valores = [];
-
         function adicionarValor() {
-            let novoValor = domcument.querySelector('#valor').value.trim(); //legal que esse trim serve para remover os espaços em branco da string 
+            let novoValor = document.querySelector('#valor').value.trim(); //legal que esse trim serve para remover os espaços em branco da string 
             if (novoValor !== ''){
                 valores.push(novoValor);
                 valores.sort();
