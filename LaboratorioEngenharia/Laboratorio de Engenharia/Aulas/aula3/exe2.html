@@ -16,11 +16,37 @@
             this.cor = cor;
             this.km = km;
             this.fipe = fipe;
-
         
+            this.anosUtilizacao = function (){
+                let hoje = new Date();
+                return hoje.getFullYear() - this.ano;
+            }
+
+            this.valorMercado = function(){
+                if(this.km <= 30000){
+                    return this.fipe * 1.1;
+                }else if(this.km < 30000 && >= 50000){
+                    return this.fipe * 1;
+                }else{
+                    return this.fipe * 0.9;
+                }
+
+            }
 
         }
 
+        function salvarCarro(){
+            let marca = document.getElementById("marca").value;
+            let modelo = document.getElementById("modelo").value;
+            let ano = document.getElementById("ano").value;
+            let cor = document.getElementById("cor").value;
+            let km = document.getElementById("km").value;
+            let fipe = document.getElementById("fipe").value;
+
+            let carro = new Carro(marca, modelo, ano, cor, km, fipe);
+             document.getElementById("anos").innerHTML = carro.anosUtilizacao();
+             document.getElementById("valor").innerHTML = carro.valorMercado();
+        }
         // a função "salvarCarro" é responsável por interagir com a interface do usuário e criar novos objetos "Carro" com base nos valores inseridos pelo usuário.
 
     </script>
@@ -49,5 +75,9 @@
 
         <input type="button" value="Salvar" onclick="salvarCarro()">
     </form>
+
+    <p>Anos de Utilização: <span id="anos"></span></p>
+    <p>Valor de Mercado: R$ <span id="valor"></span></p>
+
 </body>
 </html>
