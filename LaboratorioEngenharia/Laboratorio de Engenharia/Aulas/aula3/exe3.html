@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            display: inline-block;
+            background-color: #444;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #3e8e41;
+        }
+
+        input[type="submit"]:focus,
+        input[type="reset"]:focus {
+            outline: none;
+        }
+
+
+        #professorFields,
+        #alunoFields {
+            display: none;
+        }
+
+        #professorFields label,
+        #alunoFields label {
+            margin-top: 20px;
+        }
+
+        .fieldTitle {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Forumulário de cadastro</h1>
+    <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento"><br>
+
+        <label for="telefoneFixo">Telefone Fixo:</label>
+        <input type="tel" id="telefoneFixo" name="telefoneFixo"><br>
+
+        <label for="telefoneCelular">Telefone Celular:</label>
+        <input type="tel" id="telefoneCelular" name="telefoneCelular"><br>
+
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" name="matricula"><br>
+
+        <label for="tipoCadastro">Tipo de Cadastro:</label>
+        <select id="tipoCadastro" name="tipoCadastro">
+            <option value="professor">Professor</option>
+            <option value="aluno">Aluno</option>
+        </select><br>
+
+        <div id="professorFields" style="display: none;">
+            <label for="area">Área:</label>
+            <input type="text" id="area" name="area"><br>
+
+            <label for="lattes">Lattes:</label>
+            <input type="text" id="lattes" name="lattes"><br>
+        </div>
+
+        <div id="alunoFields" style="display: none;">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso"><br>
+        </div>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Redefinir">
+    </form>
+
+    <script>
+        class Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula) {
+                this.nome = nome;
+                this.email = email;
+                this.dataNascimento = dataNascimento;
+                this.telefoneFixo = telefoneFixo;
+                this.telefoneCelular = telefoneCelular;
+                this.matricula = matricula;
+            }
+        }
+
+        class Professor extends Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula, area, lattes) {
+                super(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula);
+                this.area = area;
+                this.lattes = lattes;
+            }
+        }
+
+        class Aluno extends Pessoa {
+            constructor(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula, curso) {
+                super(nome, email, dataNascimento, telefoneFixo, telefoneCelular, matricula);
+                this.curso = curso;
+            }
+        }
+
+        let cadastroForm = document.getElementById('cadastroForm');
+        let tipoCadastro = document.getElementById('tipoCadastro');
+        let professorFields = document.getElementById('professorFields');
+        let alunoFields = document.getElementById('alunoFields');
+
+        function onTipoCadastroChange() {
+            if (tipoCadastro.value === 'professor') {
+                professorFields.style.display = 'block';
+                alunoFields.style.display = 'none';
+            } else if (tipoCadastro.value === 'aluno') {
+                professorFields.style.display = 'none';
+                alunoFields.style.display = 'block';
+            } else {
+                professorFields.style.display = 'none';
+                alunoFields.style.display = 'none';
+            }
+        }
+
+        tipoCadastro.addEventListener('change', onTipoCadastroChange);
+
+        function onSubmit(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            let pessoa = new Pessoa(
+                cadastroForm.nome.value,
+                cadastroForm.email.value,
+                cadastroForm.dataNascimento.value,
+                cadastroForm.telefoneFixo.value,
+                cadastroForm.telefoneCelular.value,
+                cadastroForm.matricula.value
+            );
+
+            if (tipoCadastro.value === 'professor') {
+                let professor = new Professor(
+                    cadastroForm.nome.value,
+                    cadastroForm.email.value,
+                    cadastroForm.dataNascimento.value,
+                    cadastroForm.telefoneFixo.value,
+                    cadastroForm.telefoneCelular.value,
+                    cadastroForm.matricula.value,
+                    cadastroForm.area.value,
+                    cadastroForm.lattes.value
+                );
+
+                console.log(professor);
+            } else if (tipoCadastro.value === 'aluno') {
+                let aluno = new Aluno(
+                    cadastroForm.nome.value,
+                    cadastroForm.email.value,
+                    cadastroForm.dataNascimento.value,
+                    cadastroForm.telefoneFixo.value,
+                    cadastroForm.telefoneCelular.value,
+                    cadastroForm.matricula.value,
+                    cadastroForm.curso.value
+                );
+
+                console.log(aluno);
+            } else {
+                console.log(pessoa);
+            }
+        }
+
+        cadastroForm.addEventListener('submit', onSubmit);
+    </script>
+
+</body>
+
+</html>
