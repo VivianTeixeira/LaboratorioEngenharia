@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Exercicio 4</title>
+    <style>
+        body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+         h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+
+        form {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        #taskInput {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            flex: 1;
+        }
+        
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        button {
+            margin-left: 10px;
+        }
+        
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            color: #aaa;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            color: #555;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <input type="text" id="taskInput">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList">
+    </ul>
+    
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            let taskInput = document.getElementById("taskInput");
+            let taskList = document.getElementById("taskList");
+            let taskText = taskInput.value;
+            if (taskText !== "") {
+                tasks.push(taskText);
+                taskInput.value = "";
+                updateTaskList();
+            }
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            updateTaskList();
+        }
+
+        function moveTaskUp(index) {
+            if (index > 0) {
+                let temp = tasks[index];
+                tasks[index] = tasks[index - 1];
+                tasks[index - 1] = temp;
+                updateTaskList();
+            }
+        }
+
+        function moveTaskDown(index) {
+            if (index < tasks.length - 1) {
+                let temp = tasks[index];
+                tasks[index] = tasks[index + 1];
+                tasks[index + 1] = temp;
+                updateTaskList();
+            }
+        }
+
+        function updateTaskList() {
+            let taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            for (let i = 0; i < tasks.length; i++) {
+                let taskText = tasks[i];
+                let li = document.createElement("li");
+                li.innerHTML = taskText;
+                let deleteButton = document.createElement("button");
+                deleteButton.innerHTML = "excluir";
+                deleteButton.onclick = function() {
+                    deleteTask(i);
+                }
+                li.appendChild(deleteButton);
+                if (i > 0) {
+                    let upButton = document.createElement("button");
+                    upButton.innerHTML = "⇡";
+                    upButton.onclick = function() {
+                        moveTaskUp(i);
+                    }
+                    li.appendChild(upButton);
+                }
+                if (i < tasks.length - 1) {
+                    let downButton = document.createElement("button");
+                    downButton.innerHTML = "⇣";
+                    downButton.onclick = function() {
+                        moveTaskDown(i);
+                    }
+                    li.appendChild(downButton);
+                }
+                taskList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
