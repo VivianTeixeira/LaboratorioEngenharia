@@ -1,106 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Exercicio 1/title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                text-align: center;
+            }
 
-        h1{
-            color: #444;
-            margin-top: 50px;
-        }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+            }
 
-        form{
-            display: flex;
-            margin-bottom: 20px;
-        }
+            h1 {
+                color: #444;
+                margin-top: 50px;
+            }
 
-        label {
-            display: block;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        input[type="text"] {
-            flex: 1;
-            padding: 5px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #444;
-        }
-        h2{
-            font-size: 20px;
-            font-size: bold;
-        }
-        ol{
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-        li{
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-    </style>
+            form {
+                display: flex;
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-right: 10px;
+                font-weight: bold;
+            }
+
+            input[type="text"] {
+                flex: 1;
+                padding: 5px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #444;
+            }
+
+            h2 {
+                font-size: 20px;
+                font-size: bold;
+            }
+
+            ol {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            li {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+        </style>
 
 
 </head>
-    <label for="valor"> Valor novo: </label>
-    <input type="text" id="valor" name="valor">
-    <button onclick="adicionarValor()">Adicionar</button>
+<label for="valor"> Valor novo: </label>
+<input type="text" id="valor" name="valor">
+<button onclick="adicionarValor()">Adicionar</button>
 
-    <h1>Valores cadastrados: </h1>
-    <ol id="listaValores"></ol>
+<h1>Valores cadastrados: </h1>
+<ol id="listaValores"></ol>
 
-    <script>
-        let valores = [];
-        function adicionarValor() {
-            let novoValor = document.querySelector('#valor').value.trim(); //legal que esse trim serve para remover os espaços em branco da string 
-            if (novoValor !== ''){
-                valores.push(novoValor);
-                valores.sort();
-                exibirValores();
-            }
+<script>
+    let valores = [];
+    function adicionarValor() {
+        let novoValor = document.querySelector('#valor').value.trim(); //legal que esse trim serve para remover os espaços em branco da string 
+        if (novoValor !== '') {
+            valores.push(novoValor);
+            valores.sort();
+            exibirValores();
         }
+    }
 
-        function exibirValores() {
-            let lista = document.querySelector('#listaValores');
-            lista.innerHTML = '';
-            valores.forEach((valor) => {
-                let itemLista = document.createElement('li');
-                itemLista.textContent = valor;
-                lista.appendChild(itemLista);
+    function exibirValores() {
+        let lista = document.querySelector('#listaValores');
+        lista.innerHTML = '';
+        valores.forEach((valor) => {
+            let itemLista = document.createElement('li');
+            itemLista.textContent = valor;
+            lista.appendChild(itemLista);
 
-            });
-        }
+        });
+    }
 
-    </script>
+</script>
+
 <body>
-    
+
 </body>
+
 </html>
