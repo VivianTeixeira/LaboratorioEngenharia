@@ -8,6 +8,75 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Exercicio 2</title>
 
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        form {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input[type="button"] {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        p span {
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+
     <script>
         //a função "Carro" define a estrutura dos objetos que serão usados na aplicação
         function Carro(marca, modelo, ano, cor, km, fipe) {
