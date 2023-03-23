@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS - Letreiro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            font-family: Ubuntu;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #root {
+            border: 2px solid #ffffff;
+            padding: 1rem;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let fatec = "Venha estudar na Fatec";
+        let i = 0;
+        let letreiro = [];
+
+        function tick() {
+            if (i <= fatec.length) {
+                let letter = fatec[i];
+                letreiro.push(letter);
+                i++;
+                const element = (
+                    <div>
+                        <p>{letreiro}</p>
+                    </div>
+                );
+                ReactDOM.render(element, document.getElementById("root"));
+            } else {
+                letreiro = [];
+                i = 0;
+            }
+        }
+
+        setInterval(tick, 100);
+    </script>
+</body>
+
+</html>
