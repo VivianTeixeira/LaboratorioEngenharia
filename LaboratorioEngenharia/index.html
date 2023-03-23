@@ -6,78 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <!DOCTYPE html>
-    <html lang="en">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Index</title>
+        body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        padding: 40px;
+        background-color: #f0f0f0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+        h1 {
+            grid-column: 1/-1;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #333;
+            text-align: center;
+        }
 
+        a {
+            display: block;
+            margin-bottom: 20px;
+            color: #333;
+            text-decoration: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media screen and (min-width: 768px) {
             body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 16px;
-                line-height: 1.5;
-                background-color: #f6f6f6;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: 30px;
+                align-items: center;
+                justify-items: center;
+                padding: 50px;
             }
 
             h1 {
-                margin-top: 50px;
-                margin-bottom: 30px;
-                font-size: 32px;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: #333;
-                text-align: center;
+                margin-top: 0;
+                margin-bottom: 50px;
+                font-size: 48px;
             }
+        }
+    </style>
 
-            a {
-                display: block;
-                margin-bottom: 20px;
-                color: #333;
-                text-decoration: none;
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            }
 
-            a:hover {
-                transform: translateY(-5px);
-                box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            @media screen and (min-width: 768px) {
-                body {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    grid-gap: 30px;
-                    align-items: center;
-                    justify-items: center;
-                    padding: 50px;
-                }
-
-                h1 {
-                    margin-top: 0;
-                    margin-bottom: 50px;
-                    font-size: 48px;
-                }
-            }
-        </style>
-
-    </head>
+</head>
 
 <body>
+
+    <body>
     <h1> JavaScript - Aula 1</h1>
     <a href="Laboratorio de Engenharia/Aulas/aula1/exe_um.html"> JavaScript Exercício 1</a>
     <a href="Laboratorio de Engenharia/Aulas/aula1/exe_dois.html"> JavaScript Exercício 2</a>
@@ -89,22 +86,21 @@
     <a href="Laboratorio de Engenharia/Aulas/aula2/exe2.html"> JavaScript Exercício 2</a>
     <a href="Laboratorio de Engenharia/Aulas/aula2/exe3.html"> JavaScript Exercício 3</a>
 
-    <br>
 
     <h1> JavaScript - Aula 3</h1>
     <a href="Laboratorio de Engenharia/Aulas/aula3/exe1.html"> JavaScript Exercício 1</a>
     <a href="Laboratorio de Engenharia/Aulas/aula3/exe2.html"> JavaScript Exercício 2</a>
 
-    <br>
-
     <h1> JavaScript - Aula 4</h1>
     <a href="Laboratorio de Engenharia/Aulas/aula4/exe1.html"> JavaScript Exercício 1</a>
     <a href="Laboratorio de Engenharia/Aulas/aula4/exe2.html"> JavaScript Exercício 2</a>
 
-    <br>
-
     <h1> React - Aula 1</h1>
+    <a href="Laboratorio de Engenharia/Aulas/aulaReact1/exe1.html"> React - Exercicio 1</a>
     
+
+</body>
+
 
 </body>
 
