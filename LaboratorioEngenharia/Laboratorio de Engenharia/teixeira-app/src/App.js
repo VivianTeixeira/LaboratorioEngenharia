@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import {Contador}  from './Contador';
 
 function App() {
   return (
+    <>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello teacher Ana ❤️
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://www.youtube.com/watch?v=Z6cONvRUFZQ&pp=ygUbYXRyYWlkb3MgcGVsYSB0dWEgcHJlc2Vuw6dh"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+         Click here!
         </a>
       </header>
     </div>
+    <Contador />
+    </>
   );
 }
 

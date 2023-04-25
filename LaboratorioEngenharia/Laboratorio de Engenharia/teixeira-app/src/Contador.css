@@ -1,10 +1,9 @@
 .avatar-container {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-top: 20px;
-  }
+  } 
   
   
   .total-container {
@@ -14,6 +13,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
+    font-weight: bold;
   }
   
   .total {
@@ -23,13 +23,14 @@
   
   .reset-button {
     background-color: #dc3545;
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
     font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
   }
   
   .reset-button:hover {
